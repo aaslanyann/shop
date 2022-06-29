@@ -1,0 +1,1 @@
+export const GET_SLIDE_PHOTOS = 'GET-SLIDE-PHOTOS';

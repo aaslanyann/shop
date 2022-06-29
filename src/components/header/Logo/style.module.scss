@@ -1,0 +1,12 @@
+.logo {
+  width: 100%;
+  object-fit: cover;
+}
+
+.logoBlock {
+  display: block;
+  max-width: 120px;
+  &:hover {
+    opacity: 0.9;
+  }
+}

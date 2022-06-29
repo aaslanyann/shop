@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  min-height: 100px;
+  padding: 20px 3%;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  box-shadow: rgb(57 63 72 / 30%) 0px 3px 5px;
+  top: 0;
+  z-index: 1;
+}
+
+.headerContent {
+  flex: 1 1 0%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90%;
+}
+
+
+

@@ -1,0 +1,20 @@
+.links {
+  margin: 0;
+  display: flex;
+  line-height: 25px;
+  gap: 5px;
+  text-decoration: none;
+  color: rgb(0, 76, 138);
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 35px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+

@@ -1,0 +1,20 @@
+.form {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  padding: 20px;
+  row-gap: 20px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  color: #004C8A;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.errTitle {
+  color: red;
+}

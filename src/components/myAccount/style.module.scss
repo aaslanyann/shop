@@ -1,0 +1,65 @@
+.title {
+  font-weight: 400;
+  font-size: 2.125rem;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+  text-align: center;
+  margin: 0;
+}
+
+.blockInfo {
+  background: rgb(242,242,242);
+  padding: 20px 0px;
+  border-radius: 8px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.basicInfo {
+  margin: 10px 10px 30px 30%;
+  width: 40%;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.line {
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+  background: white;
+}
+
+.sector {
+  color: rgb(0, 76, 138);
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px;
+  line-height: 1.43;
+
+}
+
+.sectorValue {
+  color: rgb(62, 64, 66);
+  font-weight: 400;
+  font-size: 16px;
+  padding: 16px;
+}
+
+.titleSection {
+  margin: 10px;
+}
+
+.myAddress {
+  margin: 10px 10px 30px 30%;
+  width: 40%;
+}
+
+.blockForBtn {
+  display: flex;
+}
