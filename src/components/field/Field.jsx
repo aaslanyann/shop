@@ -1,9 +1,9 @@
 import {TextField} from "@mui/material";
 import {useState} from "react";
 
-const Field = ({onChange = () => {}, ...rest}) => {
+const Field = ({onChange = () => {},value = "" , ...rest}) => {
 
-    const [text,setText] = useState('');
+    const [text,setText] = useState(value);
 
     const handleChange = (event) => {
         const value = event.target.value;

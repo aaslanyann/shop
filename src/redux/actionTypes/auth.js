@@ -1,2 +1,3 @@
 export const SET_LOGGEDIN_USER = "SET_LOGGEDIN_USER";
 export const LOG_OUT = "LOG_OUT";
+export const UPDATE_USER_ADDRESS = "UPDATE_USER_ADDRESS";

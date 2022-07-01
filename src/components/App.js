@@ -25,29 +25,32 @@ import Load from "./shared/loader/Load";
 import MyAcc from "./myAccount/MyAcc";
 
 function App() {
-    const [isLoad, setIsLoad] = useState(false);
+  const [isLoad, setIsLoad] = useState(true);
   const token = localStorageService.getAccessToken();
   const dispatch = useDispatch();
 
   useEffect(() => {
       if(token) {
           const requestUserDate = doc(db, "users", token);
-          const data = getDoc(requestUserDate).then(doc => dispatch(setLoggedinUser(doc.data())));
+          const data = getDoc(requestUserDate).then(doc => {
+              dispatch(setLoggedinUser(doc.data()))
+          });
       }
-      setTimeout(() => setIsLoad(true), 1500)
+      setTimeout(() => setIsLoad(false), 1500)
   },[])
   return (
       ( isLoad ?
-    <div className="App">
-        <Routes>
-            <Route path={SIGN_UP_ROUTE} element={<SignUp />} />
-            <Route path={SIGN_IN_ROUTE} element={<SignIn />} />
-            <Route path={HOME_ROUTE} element={<Home />} />
-            <Route path={SHOP_ROUTE} element={<DrinkStore />} />
-            <Route path={SHOPPING_CART_ROUTE} element={<MyCart />} />
-            <Route path={USER_ACCOUNT_ROUTE} element={<MyAcc />} />
-        </Routes>
-    </div> : <Load/>
+          <Load/> :
+        <div className="App">
+            <Routes>
+                <Route path={SIGN_UP_ROUTE} element={<SignUp />} />
+                <Route path={SIGN_IN_ROUTE} element={<SignIn />} />
+                <Route path={HOME_ROUTE} element={<Home />} />
+                <Route path={SHOP_ROUTE} element={<DrinkStore />} />
+                <Route path={SHOPPING_CART_ROUTE} element={<MyCart />} />
+                <Route path={USER_ACCOUNT_ROUTE} element={<MyAcc />} />
+            </Routes>
+        </div>
       )
   );
 }

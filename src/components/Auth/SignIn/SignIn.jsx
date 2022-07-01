@@ -64,9 +64,6 @@ export default function SignIn() {
         }).catch(() => setErr("Wrong login or password"))
 
     }
-    console.log('hello')
-    console.log('hello')
-    console.log('hello')
 
 
     return (

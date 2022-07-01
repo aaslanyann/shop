@@ -1,16 +1,21 @@
 import styles from "./style.module.scss"
 import Header from "../header/Header"
 import {MAIN_COLOR_BLUE, MAIN_COLOR_CORAL} from "../../constants/colors";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectUser} from "../../redux/common/auth/selectors";
 import Table from "./table/Table";
 import {useCallback, useMemo, useState} from "react";
 import CustomBtn from "../shared/customBtn/CustomBtn";
-import {userAddressConfig, userAddressInitial} from "../../config/userPersonalInfo";
+import {userAddressConfig} from "../../config/userPersonalInfo";
+import {doc , updateDoc} from "firebase/firestore";
+import {db} from "../../FireBase/firebase-config";
+import {setUpdateAddress} from "../../redux/common/auth/actions";
 
 export default function MyAcc() {
+    const dispatch = useDispatch();
     const [changeFlag, setChangeFlag] = useState(false);
-    const {userAddress = userAddressInitial , ...userBasicInfo} = useSelector(selectUser);
+    const user = useSelector(selectUser);
+    const {userAddress , userBasicInfo} = user === null ? {} : user;
     const userAddressState = useMemo(() => userAddress,[]);
 
     const onTableRowChange = useCallback(({name,value}) => {
@@ -18,6 +23,14 @@ export default function MyAcc() {
     },[])
 
     const handleChangeAddress = () => {
+        const docRef = doc(db, "users", userBasicInfo.email);
+        const newDate = {
+            userAddress:{...userAddressState}
+        }
+        updateDoc(docRef, {
+            ...newDate
+        }).then(() => dispatch(setUpdateAddress(newDate)) )
+            .catch(err => console.log(err))
         setChangeFlag(false);
         console.log(userAddressState,'userAddressState');
     };
@@ -36,7 +49,7 @@ export default function MyAcc() {
                     <div className={styles.block}>
                         <div className={styles.basicInfo}>
                             <h1 className={styles.titleSection}>Basic Info</h1>
-                            <Table data={userBasicInfo} rows={Object.keys(userBasicInfo)} flag={undefined}/>
+                            <Table data={userBasicInfo || {}} rows={userBasicInfo ? Object.keys(userBasicInfo) : []} flag={undefined}/>
                         </div>
                         <hr/>
                         <div className={styles.myAddress}>

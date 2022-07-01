@@ -57,10 +57,21 @@ export default function SignUp() {
     const setUserData = async () => {
         const docRef = doc(db, "users", email);
         const userData = {
-            username,
-            email,
-            birthday,
-            id: uuidv4()
+                userBasicInfo: {
+                    username,
+                    email,
+                    birthday,
+                    id: uuidv4(),
+                },
+                userAddress: {
+                    country: '',
+                    region: '',
+                    city: '',
+                    street: '',
+                    building: '',
+                    house: '',
+                    postcode: ''
+                }
         }
         await setDoc(docRef, userData);
         localStorageService.setAccessToken(email)
