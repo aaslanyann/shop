@@ -1,7 +1,6 @@
 import styles from "../style.module.scss"
 import { v4 as uuidv4 } from "uuid";
 import Field from "../../field/Field"
-import Load from "../../shared/loader/Load";
 
 
 export default function Table({data,rows, flag , fieldsData ,onRowChange = () => {}}) {
